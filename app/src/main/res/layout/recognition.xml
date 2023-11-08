@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/backgroundColor">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startFirstCoulmn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.08" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startFirstCoulmn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startFirstCoulmn3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.6" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startFirstCoulmn4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.92" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startHoizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.07" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startHoizontal1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.45" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startHoizontal2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.55" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startHoizontal3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.63" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startHoizontal4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.7" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startHoizontal5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.78" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startHoizontal6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.85" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startHoizontal7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.93" />
+
+    <Button
+        android:id="@+id/buttonResponce3"
+        android:text="Mizuas/asdasd"
+        android:maxLines="2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/startHoizontal5"
+        app:layout_constraintEnd_toStartOf="@+id/startFirstCoulmn2"
+        app:layout_constraintStart_toStartOf="@+id/startFirstCoulmn"
+        app:layout_constraintTop_toTopOf="@+id/startHoizontal4" />
+
+    <Button
+        android:id="@+id/buttonResponce4"
+        android:text="Mizuas/asdasd"
+        android:maxLines="2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/startHoizontal5"
+        app:layout_constraintEnd_toStartOf="@+id/startFirstCoulmn4"
+        app:layout_constraintStart_toStartOf="@+id/startFirstCoulmn3"
+        app:layout_constraintTop_toTopOf="@+id/startHoizontal4" />
+
+    <Button
+        android:id="@+id/buttonResponce5"
+        android:text="Mizuas/asdasd"
+        android:maxLines="2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/startHoizontal7"
+        app:layout_constraintEnd_toStartOf="@+id/startFirstCoulmn2"
+        app:layout_constraintStart_toStartOf="@+id/startFirstCoulmn"
+        app:layout_constraintTop_toTopOf="@+id/startHoizontal6" />
+
+    <Button
+        android:id="@+id/buttonResponce6"
+        android:text="Mizuas/asdasd"
+        android:maxLines="2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/startHoizontal7"
+        app:layout_constraintEnd_toStartOf="@+id/startFirstCoulmn4"
+        app:layout_constraintStart_toStartOf="@+id/startFirstCoulmn3"
+        app:layout_constraintTop_toTopOf="@+id/startHoizontal6" />
+
+    <Button
+        android:id="@+id/buttonResponce1"
+        android:text="Mizuas/asdasd"
+        android:maxLines="2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/startHoizontal3"
+        app:layout_constraintEnd_toStartOf="@+id/startFirstCoulmn2"
+        app:layout_constraintStart_toStartOf="@+id/startFirstCoulmn"
+        app:layout_constraintTop_toTopOf="@+id/startHoizontal2"/>
+
+    <Button
+        android:id="@+id/buttonResponce2"
+        android:text="Mizuas/asdasd"
+        android:maxLines="2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/startHoizontal3"
+        app:layout_constraintEnd_toStartOf="@+id/startFirstCoulmn4"
+        app:layout_constraintStart_toStartOf="@+id/startFirstCoulmn3"
+        app:layout_constraintTop_toTopOf="@+id/startHoizontal2"/>
+
+    <Button
+        android:id="@+id/RecognitionKanjiImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/startHoizontal1"
+        app:layout_constraintEnd_toStartOf="@+id/startFirstCoulmn4"
+        app:layout_constraintStart_toStartOf="@+id/startFirstCoulmn"
+        app:layout_constraintTop_toTopOf="@+id/startHoizontal"
+        android:background="@color/white"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

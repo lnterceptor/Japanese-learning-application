@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/notSelectedColor"
+    >
+
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/startFloatingButton"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        android:backgroundTint="#BAB9B9"-->
+<!--        >-->
+<!--    </com.google.android.material.floatingactionbutton.FloatingActionButton>-->
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startFloatingButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startTexts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.25" />
+
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/topOfFirstText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <TextView
+        android:id="@+id/TitleOfSet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dział 4"
+        app:layout_constraintTop_toBottomOf="@+id/topOfFirstText"
+        app:layout_constraintStart_toStartOf="@+id/startTexts"
+        android:textColor="@color/white"
+        android:textSize="35sp"
+        >
+    </TextView>
+
+
+
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/startOfButton"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        android:backgroundTint="#BAB9B9"-->
+<!--        android:id="@+id/expandKanji"-->
+<!--        >-->
+<!--    </com.google.android.material.floatingactionbutton.FloatingActionButton>-->
+
+
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/startOfSecondButton"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        android:backgroundTint="#BAB9B9"-->
+<!--        android:id="@+id/selectAllKanji"-->
+<!--        >-->
+<!--    </com.google.android.material.floatingactionbutton.FloatingActionButton>-->
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startOfButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.63" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startOfSecondButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

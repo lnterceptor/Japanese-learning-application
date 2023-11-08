@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Praca Inzynierska</string>
+    <string name="smallest_text">10sp</string>
+    <string name="small_text">16sp</string>
+    <string name="medium_text">20sp</string>
+    <string name="big_text">32sp</string>
+    <string name="huge_text">48sp</string>
+</resources>
