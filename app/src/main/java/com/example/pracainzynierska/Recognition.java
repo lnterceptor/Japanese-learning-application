@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 
 import com.google.firebase.database.DatabaseReference;
@@ -25,7 +26,9 @@ public class Recognition extends AppCompatActivity {
     ArrayList<ChooseKanjiObject> kanjiObjects;
     ArrayList<String> kanjiForRepetition;
     private Button imageView;//todo: button, zeby po jego wcisnieciu text to speech
-
+    ConstraintLayout layout;
+    boolean responded = true;
+    Random random = new Random();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -34,14 +37,52 @@ public class Recognition extends AppCompatActivity {
 
         kanjiObjects = (ArrayList<ChooseKanjiObject>) getIntent().getSerializableExtra("allKanji");
         kanjiForRepetition = getIntent().getStringArrayListExtra("kanjiArray");
-        currentAnsKanji = kanjiForRepetition.get(0);
+
         setContentView(R.layout.recognition);
 
-        createAnswers();
-
         setButtons();
-        setImageView();
-        setAnswers();
+        setCanvas();
+
+        nextQuestion();
+
+    }
+    protected void setCanvas(){
+        layout = findViewById(R.id.recognition_background);
+
+        layout.setOnClickListener(new ConstraintLayout.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nextQuestion();
+            }
+        });
+
+    }
+
+    protected void nextQuestion(){
+        if(responded){
+            createAnswers();
+            resetButtons();
+            setAnswers();
+            setImageView();
+
+            responded = false;
+        }
+    }
+
+    protected void createAnswers(){
+        setNextKanji();
+        createCorrectAnswer();
+        createIncorrectAnswers();
+    }
+
+    protected void setNextKanji(){
+        if(kanjiForRepetition.size() == 0){
+            //todo: finish activity and show end screen
+            return;
+        }
+        int questionNumber = random.nextInt(kanjiForRepetition.size());
+        currentAnsKanji = kanjiForRepetition.get(questionNumber);
+        kanjiForRepetition.remove(currentAnsKanji);
     }
     protected void setAnswers(){
         Random random = new Random();
@@ -57,6 +98,12 @@ public class Recognition extends AppCompatActivity {
             else{
                 tempButton.setText(answers.get(0));
             }
+        }
+    }
+
+    protected void resetButtons() {
+        for (Button button : answerButtons) {
+            button.setBackgroundColor(ContextCompat.getColor(this, R.color.buttonColor));
         }
     }
     protected void setButtons(){
@@ -93,41 +140,53 @@ public class Recognition extends AppCompatActivity {
     }
 
     protected void checkAnswer(Button button){
-        if(button.getText().equals(ansCorrect)){
-            button.setBackgroundColor(ContextCompat.getColor(this,R.color.CorrectAnswer));
+        if(!responded) {
+            if (button.getText().equals(ansCorrect)) {
+                button.setBackgroundColor(ContextCompat.getColor(this, R.color.CorrectAnswer));
 
-        }
-        else{
-            button.setBackgroundColor(ContextCompat.getColor(this,R.color.IncorrectAnswer));
-            for (Button buttonTemp: answerButtons) {
-                if(buttonTemp.getText().equals(ansCorrect)){
-                    buttonTemp.setBackgroundColor(ContextCompat.getColor(this,R.color.CorrectAnswer));
-                    break;
+            } else {
+                button.setBackgroundColor(ContextCompat.getColor(this, R.color.IncorrectAnswer));
+                for (Button buttonTemp : answerButtons) {
+                    if (buttonTemp.getText().equals(ansCorrect)) {
+                        buttonTemp.setBackgroundColor(ContextCompat.getColor(this, R.color.CorrectAnswer));
+                        break;
+                    }
                 }
             }
+            responded = true;
         }
-    }
-    protected void createAnswers(){
-        createCorrectAnswer();
-        createIncorrectAnswers();
+        else{
+            nextQuestion();
+        }
     }
 
     protected void createCorrectAnswer(){
         for (ChooseKanjiObject kanji:kanjiObjects) {
             if(kanji.getKanji().equals(currentAnsKanji)){
-                ansCorrect = kanji.getReadings_kun();
+                ansCorrect = kanji.getMostPopularKunReading();
+                if(ansCorrect.length() > 0){
+                    ansCorrect += ", ";
+                }
+                ansCorrect += kanji.getMostPopularOnReading();
             }
         }
     }
 
     protected void createIncorrectAnswers(){
-        Random random = new Random();
 
+        incorrectAnswers.clear();
         for (int i = 0; i < 5; i++) {
             boolean shouldBePlaced;
             do{
                 shouldBePlaced = true;
-                String incorrectMeaning = kanjiObjects.get(random.nextInt(kanjiObjects.size())).getReadings_kun();
+                int randMeaning =  random.nextInt(kanjiObjects.size());
+                String incorrectMeaning = kanjiObjects.get(randMeaning).getMostPopularKunReading();
+                if(incorrectMeaning.length() > 0){
+                    incorrectMeaning += ", ";
+                }
+                incorrectMeaning += kanjiObjects.get(randMeaning).getMostPopularOnReading();
+
+
                 if(!Objects.equals(incorrectMeaning, ansCorrect)) {
                     if (incorrectAnswers.size() > 0) {
                         for (String element : incorrectAnswers) {

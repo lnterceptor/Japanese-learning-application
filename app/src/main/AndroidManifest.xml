@@ -61,7 +61,7 @@
             android:label="Recognition">
         </activity>
         <activity
-            android:name=".ComplexRecognition"
+            android:name=".RecognitionComplex"
             android:label="Complex Recognition">
         </activity>
         <activity

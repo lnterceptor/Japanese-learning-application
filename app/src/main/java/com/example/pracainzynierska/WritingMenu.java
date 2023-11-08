@@ -29,7 +29,7 @@ public class WritingMenu extends AppCompatActivity {
         assignValue(translationMenu, ChooseJLPTLVL.class, Translation.class);
 
         complexRecognitionMenu = findViewById(R.id.recognition_complex_button_menu);
-        assignValue(complexRecognitionMenu, ChooseJLPTLVL.class, ComplexRecognition.class);
+        assignValue(complexRecognitionMenu, ChooseJLPTLVL.class, RecognitionComplex.class);
 
     }
 

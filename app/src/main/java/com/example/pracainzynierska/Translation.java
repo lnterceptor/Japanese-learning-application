@@ -63,8 +63,9 @@ public class Translation extends AppCompatActivity {
         image.setText(currentAnswer);
     }
     void checkAnswer(){
+
         //todo: someone might write in as kunyomi, or onyomi, so check both options
-        if(image.getText().equals(currentAnswer)){
+        if(checkAnswer.getText().equals(currentAnswer)){
             //todo: Idk how to communicate whether provided answer is correct or not
             checkAnswer.setBackgroundColor(ContextCompat.getColor(this,R.color.CorrectAnswer));
             answerInput.setText("");

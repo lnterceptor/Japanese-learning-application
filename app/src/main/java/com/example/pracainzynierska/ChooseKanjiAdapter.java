@@ -88,8 +88,11 @@ public class ChooseKanjiAdapter extends BaseExpandableListAdapter {
 
         String kanji = kanjiObject.getKanji();
         String meanings = kanjiObject.getMeanings();
-        String reading_on = kanjiObject.getReadings_on();
-        String reading_kun = kanjiObject.getReadings_kun();
+        String reading_on = kanjiObject.getMostPopularOnReading();
+        String reading_kun = kanjiObject.getMostPopularKunReading();
+        if(reading_kun.length() > 0 && reading_on.length() > 0){
+            reading_on += ", ";
+        }
         String readings = reading_on + reading_kun;
 
         if(convertView == null){

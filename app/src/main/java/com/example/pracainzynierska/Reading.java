@@ -32,8 +32,7 @@ public class Reading extends Recognition {
 
     @Override
     protected void createIncorrectAnswers(){
-        Random random = new Random();
-
+        incorrectAnswers.clear();
         for (int i = 0; i < 5; i++) {
             boolean shouldBePlaced;
             do{
