@@ -7,17 +7,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
+import android.widget.ExpandableListView;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 
+
 public class ChooseKanjiAdapter extends BaseExpandableListAdapter {
-
-
+    private ConstraintLayout layout;
     private Context context;
     private List<ChooseKanjiHeader> kanji;
 
@@ -77,6 +83,64 @@ public class ChooseKanjiAdapter extends BaseExpandableListAdapter {
         TextView item = convertView.findViewById(R.id.TitleOfSet);
         item.setText(setName);
 
+        layout = convertView.findViewById(R.id.backGroundHeader);
+        layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (isExpanded) ((ExpandableListView) parent).collapseGroup(groupPosition);
+                else {
+                    for(int i = 0; i < getGroupCount(); i++){
+                        ((ExpandableListView) parent).collapseGroup(i);
+                    }
+                    ((ExpandableListView) parent).expandGroup(groupPosition, true);
+                }
+            }
+        });
+
+        Button showKanji = convertView.findViewById(R.id.imageOfKanji);
+        showKanji.setBackgroundColor(context.getResources().getColor(R.color.buttonColor));
+        showKanji.setText(kanjiHeader.getKanjiSet().get(0).getKanji());
+
+
+        Button chooseAllKanji = convertView.findViewById(R.id.selectAllKanji);
+        chooseAllKanji.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!kanjiHeader.isChoosen()) {
+                    for (int i = 0; i < getChildrenCount(groupPosition); i++) {
+                        ChooseKanjiObject child = (ChooseKanjiObject) getChild(groupPosition, i);
+
+                        if(!child.isSelected()) {
+                            child.changeSelected();
+                            getChildView(groupPosition, i, false, null, parent);
+                            notifyDataSetChanged();
+
+                            ChooseKanji.changeArrayOfKanji(child.getKanji(), child.isSelected());
+                        }
+                    }
+                    kanjiHeader.setChoosen(true);
+                   // layout.setBackgroundColor(ContextCompat.getColor(view.getContext(), R.color.selectedColor));//todo: kolor sie buguje co jakis czas
+                }
+                else{
+                    for (int i = 0; i < getChildrenCount(groupPosition); i++) {
+                        ChooseKanjiObject child = (ChooseKanjiObject) getChild(groupPosition, i);
+
+                        if(child.isSelected()) {
+                            child.changeSelected();
+                            getChildView(groupPosition, i, false, null, parent);
+                            notifyDataSetChanged();
+
+                            ChooseKanji.changeArrayOfKanji(child.getKanji(), child.isSelected());
+                        }
+                    }
+                    kanjiHeader.setChoosen(false);
+                    //layout.setBackgroundColor(ContextCompat.getColor(view.getContext(), R.color.notSelectedColor));
+                }
+            }
+        });
+
+        colorGroup(groupPosition);
+
         //OnClickListenersForButtons/Change them into Image views
 
         return convertView;
@@ -112,17 +176,38 @@ public class ChooseKanjiAdapter extends BaseExpandableListAdapter {
 
         if(kanjiObject.isSelected()){
             convertView.setBackgroundColor(context.getResources().getColor(R.color.selectedColor));
+            colorGroup(groupPosition);
         }
         else{
             convertView.setBackgroundColor(context.getResources().getColor(R.color.notSelectedColor));
         }
 
 
-
-
         return convertView;
     }
 
+    public void colorGroup(int groupPosition){
+        int countSelected = 0;
+        for (int i = 0; i < getChildrenCount(groupPosition); i++) {
+            ChooseKanjiObject child = (ChooseKanjiObject) getChild(groupPosition, i);
+            if(child.isSelected()) {
+                countSelected += 1;
+            }
+        }
+        if(countSelected == 0){
+            layout.setBackgroundColor(context.getResources().getColor(R.color.notSelectedColor));
+            ChooseKanjiHeader kanjiHeader = (ChooseKanjiHeader) getGroup(groupPosition);
+            kanjiHeader.setChoosen(false);
+        }
+        else if(countSelected < getChildrenCount(groupPosition)){
+            layout.setBackgroundColor(context.getResources().getColor(R.color.buttonColor));
+        }
+        else{
+            layout.setBackgroundColor(context.getResources().getColor(R.color.selectedColor));
+            ChooseKanjiHeader kanjiHeader = (ChooseKanjiHeader) getGroup(groupPosition);
+            kanjiHeader.setChoosen(true);
+        }
+    }
 
     @Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {

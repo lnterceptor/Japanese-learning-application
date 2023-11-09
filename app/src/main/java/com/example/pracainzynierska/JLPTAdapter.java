@@ -31,11 +31,14 @@ public class JLPTAdapter extends ArrayAdapter<JLPTObject> {
         }
         TextView title = view.findViewById(R.id.TitleOfKanjiChoose);
         TextView description = view.findViewById(R.id.DescriptionOfKanjiChoose);
+        TextView kanjiText = view.findViewById(R.id.kanjiText);
         //FloatingActionButton kanjiImage = view.findViewById(R.id.ImageKanjiChoose);
 
         JLPTObject object = getItem(position);
 
+
         //kanjiImage.setImageResource(object.getImageResourceId());
+        kanjiText.setText(object.getKanji());
         title.setText(object.getTitle());
         description.setText(object.getDescription());
 

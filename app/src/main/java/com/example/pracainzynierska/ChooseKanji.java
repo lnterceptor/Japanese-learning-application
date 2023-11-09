@@ -26,7 +26,6 @@ import java.util.Map;
 public class ChooseKanji extends AppCompatActivity {
         private DatabaseReference mDatabase;
         final private int lengthOfSet = 21; //todo: later on let user change it's value and based on it create different amount of sets
-        int expanded = -1;
         ArrayList<ChooseKanjiObject> kanjiObjects = new ArrayList<ChooseKanjiObject>();
         ArrayList<ChooseKanjiHeader> kanjiHeaders = new ArrayList<ChooseKanjiHeader>();
 
@@ -34,7 +33,8 @@ public class ChooseKanji extends AppCompatActivity {
         ChooseKanjiAdapter adapter;
         Class<?> nextActivity;
         String level;
-        ArrayList<String> kanjiForNextActivity = new ArrayList<String>();
+        //todo: static array moze byc problemem podczas konczenia ktortejs z aktywnosci, bo raczej sama sie nie czysci (5 kanji w recognition, przechodzimy 2, cofamy i zostaja w niej 3)
+        static ArrayList<String> kanjiForNextActivity = new ArrayList<String>();
 
         Button buttonToNextActivity;
         @Override
@@ -77,17 +77,6 @@ public class ChooseKanji extends AppCompatActivity {
 
         adapter = new ChooseKanjiAdapter(getApplicationContext(), kanjiHeaders);
         listView.setAdapter(adapter);
-
-
-        listView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
-            @Override
-            public void onGroupExpand(int groupPosition) {
-                if(expanded != -1 && groupPosition != expanded){
-                    listView.collapseGroup(expanded);
-                }
-                expanded = groupPosition;
-            }
-        });
         listView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
@@ -116,7 +105,7 @@ public class ChooseKanji extends AppCompatActivity {
                 buttonToNextActivity.setVisibility(View.INVISIBLE);
             }
     }
-    void changeArrayOfKanji(String kanji, boolean shouldAdd){
+    public static void changeArrayOfKanji(String kanji, boolean shouldAdd){
             if(shouldAdd == true){
                 kanjiForNextActivity.add(kanji);
             }

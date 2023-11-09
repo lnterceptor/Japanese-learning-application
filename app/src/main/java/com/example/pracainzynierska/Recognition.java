@@ -28,6 +28,7 @@ public class Recognition extends AppCompatActivity {
     private Button imageView;//todo: button, zeby po jego wcisnieciu text to speech
     ConstraintLayout layout;
     boolean responded = true;
+    private int textSize = 90;
     Random random = new Random();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,6 +128,7 @@ public class Recognition extends AppCompatActivity {
 
     protected void setImageView(){
         imageView = findViewById(R.id.RecognitionKanjiImage);
+        imageView.setTextSize(textSize);
         imageView.setText(currentAnsKanji);
     }
 

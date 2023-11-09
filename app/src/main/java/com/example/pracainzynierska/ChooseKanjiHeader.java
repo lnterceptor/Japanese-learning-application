@@ -5,6 +5,16 @@ import java.util.ArrayList;
 public class ChooseKanjiHeader {
     String title;
     String titleKanji;
+
+    public void setChoosen(boolean setChoosen) {
+        this.choosen = setChoosen;
+    }
+
+    public boolean isChoosen() {
+        return choosen;
+    }
+
+    boolean choosen = false;
     ArrayList<ChooseKanjiObject> kanjiSet;
 
     public String getTitle() {
