@@ -48,7 +48,7 @@ public class ChooseKanji extends AppCompatActivity {
             nextActivity =  (Class<?>) intent.getSerializableExtra("nextActivity");
 
             buttonToNextActivity = findViewById(R.id.nextActivity);
-            buttonToNextActivity.setVisibility(View.INVISIBLE);
+            //buttonToNextActivity.setVisibility(View.INVISIBLE);
             setNextActivityButton(buttonToNextActivity);
 
 
@@ -63,11 +63,17 @@ public class ChooseKanji extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), nextActivity);
+                if(kanjiForNextActivity.size() > 0) {
 
-                intent.putExtra("kanjiArray", kanjiForNextActivity);
-                intent.putExtra("allKanji", kanjiObjects);
-                startActivity(intent);
+                    Intent intent = new Intent(getApplicationContext(), nextActivity);
+
+                    intent.putExtra("kanjiArray", kanjiForNextActivity);
+                    intent.putExtra("allKanji", kanjiObjects);
+                    startActivity(intent);
+                }
+                else{
+                    //todo: some toast, or idk when 0 kanji are selected
+                }
             }
         });
     }
@@ -89,21 +95,11 @@ public class ChooseKanji extends AppCompatActivity {
 
                 changeArrayOfKanji(child.getKanji(), child.isSelected());
 
-                isPossibleToGoToNextActivity();
-
                 return true;
             }
         });
 
 
-    }
-    void isPossibleToGoToNextActivity(){
-            if(kanjiForNextActivity.size() > 0){
-                buttonToNextActivity.setVisibility(View.VISIBLE);
-            }
-            else{
-                buttonToNextActivity.setVisibility(View.INVISIBLE);
-            }
     }
     public static void changeArrayOfKanji(String kanji, boolean shouldAdd){
             if(shouldAdd == true){
