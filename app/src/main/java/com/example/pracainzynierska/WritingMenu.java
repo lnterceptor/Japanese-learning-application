@@ -10,7 +10,6 @@ import android.widget.LinearLayout;
 public class WritingMenu extends AppCompatActivity {
 
     LinearLayout drawingMenu, recognitionMenu, readingMenu, translationMenu, complexRecognitionMenu;
-    String title;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +28,13 @@ public class WritingMenu extends AppCompatActivity {
         assignValue(translationMenu, ChooseJLPTLVL.class, Translation.class);
 
         complexRecognitionMenu = findViewById(R.id.recognition_complex_button_menu);
-        assignValue(complexRecognitionMenu, ChooseJLPTLVL.class, RecognitionComplex.class);
+        complexRecognitionMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), RecognitionComplexMenu.class);
+                view.getContext().startActivity(intent);
+            }
+        });
 
     }
 

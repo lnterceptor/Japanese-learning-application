@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/notSelectedColor"
+    android:id="@+id/backGroundHeader"
+    >
+
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/kanjiStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/topOfFirstText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/downOfFirstText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <TextView
+        android:id="@+id/TitleOfKanji"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="N5"
+        android:textColor="@color/white"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toBottomOf="@+id/downOfFirstText"
+        app:layout_constraintEnd_toStartOf="@+id/endOfImage"
+        app:layout_constraintStart_toStartOf="@+id/kanjiStart"
+        app:layout_constraintTop_toBottomOf="@+id/topOfFirstText" />
+
+    <TextView
+        android:id="@+id/kunReading"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="kun_reading"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/divideTexts"
+        app:layout_constraintEnd_toStartOf="@+id/startOftexts"
+        app:layout_constraintStart_toEndOf="@+id/TitleOfKanji"
+        app:layout_constraintTop_toBottomOf="@+id/topOfFirstText" />
+
+    <TextView
+        android:id="@+id/onReading"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="on_reading"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/downOfFirstText"
+        app:layout_constraintEnd_toStartOf="@+id/startOftexts"
+        app:layout_constraintStart_toEndOf="@+id/TitleOfKanji"
+        app:layout_constraintTop_toTopOf="@+id/divideTexts" />
+
+
+    <TextView
+        android:id="@+id/correctlyDone"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="1000"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/divideTexts"
+        app:layout_constraintEnd_toStartOf="@+id/percentCorrrect"
+        app:layout_constraintStart_toStartOf="@+id/startOftexts"
+        app:layout_constraintTop_toTopOf="@+id/topOfFirstText" />
+
+    <TextView
+        android:id="@+id/incorrectlyDone"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="75"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/downOfFirstText"
+        app:layout_constraintEnd_toStartOf="@+id/percentIncorrect"
+        app:layout_constraintStart_toStartOf="@+id/startOftexts"
+        app:layout_constraintTop_toTopOf="@+id/divideTexts" />
+
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:progress="50"
+        android:max="100"
+        android:id="@+id/percentCorrrect"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="#BAB9B9"
+        android:progressTint="@color/CorrectAnswer"
+        app:layout_constraintBottom_toBottomOf="@+id/divideTexts"
+        app:layout_constraintEnd_toStartOf="@+id/startOfSecondButton"
+        app:layout_constraintStart_toStartOf="@+id/startOfButton"
+        app:layout_constraintTop_toTopOf="@+id/topOfFirstText"
+        />
+
+    <ProgressBar
+        android:id="@+id/percentIncorrect"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="#BAB9B9"
+        android:max="100"
+        android:progress="50"
+        android:progressTint="@color/IncorrectAnswer"
+        app:layout_constraintBottom_toTopOf="@+id/downOfFirstText"
+        app:layout_constraintEnd_toStartOf="@+id/startOfSecondButton"
+        app:layout_constraintStart_toStartOf="@+id/startOfButton"
+        app:layout_constraintTop_toBottomOf="@+id/percentCorrrect" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startOfButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.6" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startOftexts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startOfSecondButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/endOfImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.2" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/divideTexts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

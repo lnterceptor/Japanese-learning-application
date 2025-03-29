@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,8 +16,7 @@
         tools:targetApi="31"
         >
         <activity
-
-            android:name=".MainMenu"
+            android:name=".Login"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             android:exported="true">
             <intent-filter>
@@ -25,52 +27,220 @@
         </activity>
 
         <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:name=".MainMenu"
+            android:label="Main Menu">
+        </activity>
+        <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:name=".ProfileCheckExercisesMenu"
+            android:label="Profile Check Exercises Menu">
+        </activity>
+        <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:name=".ProfileCheckExercisesSentences"
+            android:label="Profile Check Exercises Sentences">
+        </activity>
+
+        <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:name=".ProfileAddFriend"
+            android:label="Profile Add Friend">
+        </activity>
+
+        <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:name=".ResetPassword"
+            android:label="Reset Password">
+        </activity>
+
+
+        <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:name=".ProfileCheckKanji"
+            android:label="Profile Check Kanji">
+        </activity>
+        <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:name=".ProfileCheckGrammar"
+            android:label="Profile Check Grammar">
+        </activity>
+        <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:name=".ProfileFriendsList"
+            android:label="Profile Friends List">
+        </activity>
+        <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:name=".ProfileFriendMenu"
+            android:label="Profile Friend Menu">
+        </activity>
+        <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:name=".ProfileFriend"
+            android:label="Profile Friend">
+        </activity>
+
+        <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:name=".Profile"
+            android:label="Profile">
+        </activity>
+
+        <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:name=".Register"
+            android:label="Register">
+        </activity>
+
+
+
+        <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
             android:name=".WritingMenu"
             android:label="Writing Menu">
         </activity>
         <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
             android:name=".GrammarMenu"
             android:label="Grammar Menu">
         </activity>
         <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
             android:name=".AddExerciseMenu"
             android:label="Add Exercise Menu">
         </activity>
         <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
             android:name=".ListeningMenu"
             android:label="Listening Menu">
         </activity>
         <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
             android:name=".ChooseKanji"
             android:label="Choose Kanji">
         </activity>
         <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
             android:name=".OtherExercisesMenu"
             android:label="Other Exercises Kanji">
         </activity>
         <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
             android:name=".Drawing"
             android:label="Drawing">
         </activity>
         <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
             android:name=".ChooseJLPTLVL"
             android:label="Choose JLPT LVL">
         </activity>
         <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
             android:name=".Recognition"
             android:label="Recognition">
         </activity>
         <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:name=".RecognitionComplexMenu"
+            android:label="Recognition Complex Menu">
+        </activity>
+        <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:name=".RecognitionComplexFriendChoice"
+            android:label="Recognition Complex Friend Choice">
+        </activity>
+        <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:name=".ProfileCheckExercises"
+            android:label="Profile Check Exercises">
+        </activity>
+
+        <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:name=".KanjiExerciseSummary"
+            android:label="Kanji Exercise Summary">
+        </activity>
+        <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:name=".AddWritingExercise"
+            android:label="Add Writing Exercise">
+        </activity>
+        <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:name=".AddListeningExercise"
+            android:label="Add Listening Exercise">
+        </activity>
+
+        <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:name=".ListeningSentenceRecognitionMenu"
+            android:label="Listening Sentence Recognition Menu">
+        </activity>
+        <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:name=".ListeningSentenceRecognitionFriendChoice"
+            android:label="Listening Sentence Recognition Friend Choice">
+        </activity>
+        <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:name=".ListeningPassive"
+            android:label="Listening Passive">
+        </activity>
+
+        <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:name=".ListeningSentenceRecognition"
+            android:label="Listening Sentence Recognition">
+        </activity>
+
+        <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
             android:name=".RecognitionComplex"
             android:label="Complex Recognition">
         </activity>
         <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
             android:name=".Translation"
             android:label="Translation">
         </activity>
         <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
             android:name=".Reading"
             android:label="Reading">
+        </activity>
+        <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:name=".GrammarExercise"
+            android:label="Grammar Exercise">
+        </activity>
+        <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:name=".GrammarTheory"
+            android:label="Grammar Theory">
+        </activity>
+
+
+
+        <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:name=".ListeningRecognition"
+            android:label="Listening Recognition">
+        </activity>
+        <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:name=".GrammarExerciseSummary"
+            android:label="Grammar Exercise Summary">
+        </activity>
+        <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:name=".ListeningSpeaking"
+            android:label="Listening Speaking">
+        </activity>
+        <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:name=".GrammarChoosenMenu"
+            android:label="Grammar Choosen Menu">
         </activity>
 
     </application>

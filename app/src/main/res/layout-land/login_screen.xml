@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/gradient">
+
+
+    <TextView
+        android:textAllCaps="true"
+        android:id="@+id/login_text"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:textColor="@color/darkGrey"
+        android:text="Logowanie"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toTopOf="@+id/horizontal"
+        app:layout_constraintEnd_toStartOf="@+id/startVertical2"
+        app:layout_constraintStart_toStartOf="@+id/startVertical1"
+        app:layout_constraintTop_toTopOf="@+id/startHoizontal0"/>
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/buttonColor"
+        android:gravity="center"
+        android:hint="Email"
+        android:textAllCaps="true"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toTopOf="@+id/startHoizontal2"
+        app:layout_constraintEnd_toStartOf="@+id/startVertical2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/startVertical1"
+        app:layout_constraintTop_toTopOf="@+id/startHoizontal1"
+        app:layout_constraintVertical_bias="0.0"></EditText>
+
+    <EditText
+        android:inputType="textPassword"
+        android:textAllCaps="true"
+        android:gravity="center"
+        android:id="@+id/password"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:textSize="32sp"
+        android:hint="Hasło"
+        android:background="@color/buttonColor"
+        app:layout_constraintBottom_toTopOf="@+id/startHoizontal4"
+        app:layout_constraintEnd_toStartOf="@+id/startVertical2"
+        app:layout_constraintStart_toStartOf="@+id/startVertical1"
+        app:layout_constraintTop_toTopOf="@+id/startHoizontal3" />
+
+    <Button
+        android:id="@+id/check"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="Zaloguj się"
+        android:textSize="32sp"
+        android:background="@color/buttonColor"
+        app:layout_constraintBottom_toTopOf="@+id/startHoizontal6"
+        app:layout_constraintEnd_toStartOf="@+id/startVertical2"
+        app:layout_constraintStart_toStartOf="@+id/startVertical1"
+        app:layout_constraintTop_toTopOf="@+id/startHoizontal5" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startHoizontal1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startHoizontal0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startHoizontal2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.45" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startHoizontal3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.55" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startHoizontal4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.7" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startHoizontal5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startHoizontal6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startVertical1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startVertical2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:text="Zarejestruj się"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/check"
+        app:layout_constraintTop_toBottomOf="@+id/check"
+        android:textColor="@color/darkGrey"
+        android:id="@+id/goToRegister"
+    />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

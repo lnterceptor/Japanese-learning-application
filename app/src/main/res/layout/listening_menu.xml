@@ -2,7 +2,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/backgroundColor"
+    android:background="@drawable/gradient"
     >
 
     <LinearLayout
@@ -22,16 +22,21 @@
         </ImageView>
 
 
-        <View
-            android:layout_width="0dp"
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:text="漢字を聞く"
+            android:textColor="@color/white"
+            android:textSize="50sp"
+            android:gravity="center"
+            />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="recognition from readings"
+            android:text="Rozpoznawanie czytań"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@color/white"
@@ -55,18 +60,22 @@
         </ImageView>
 
 
-        <View
-            android:layout_width="0dp"
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1" />
-
+            android:layout_weight="1"
+            android:text="漢字を聞く"
+            android:textColor="@color/white"
+            android:textSize="50sp"
+            android:gravity="center"
+            />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:textAlignment="center"
 
-            android:text="writing"
+            android:text="Rozpoznawanie\nmowy"
             android:textAllCaps="true"
             android:textColor="@color/white"
             />
@@ -81,30 +90,31 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/endSecondRow"
         app:layout_constraintEnd_toStartOf="@+id/endFirstCoulmn"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/startFirstCoulmn"
-        app:layout_constraintTop_toTopOf="@+id/startSecondRow">
+        app:layout_constraintTop_toTopOf="@+id/startSecondRow"
+        app:layout_constraintVertical_bias="0.0">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></ImageView>
-
-
-        <View
-            android:layout_width="0dp"
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:text="文"
+            android:textColor="@color/white"
+            android:textSize="50sp"
+            android:gravity="center"
+            />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="passive listening"
+            android:text="Pasywne słuchanie"
             android:textAlignment="center"
 
             android:textAllCaps="true"
             android:textColor="@color/white" />
     </LinearLayout>
-
 
     <LinearLayout
         android:id="@+id/sentence_recognition_button_menu"
@@ -117,15 +127,15 @@
         app:layout_constraintStart_toStartOf="@+id/startSecondCoulmn"
         app:layout_constraintTop_toTopOf="@+id/startSecondRow">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></ImageView>
-
-
-        <View
-            android:layout_width="0dp"
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:text="文章認識"
+            android:textColor="@color/white"
+            android:textSize="56sp"
+            android:gravity="center"
+            />
 
         <TextView
             android:layout_width="wrap_content"
@@ -133,7 +143,7 @@
             android:layout_gravity="center_horizontal"
             android:textAlignment="center"
 
-            android:text="sentence recognition"
+            android:text="Rozpoznawanie zdań"
             android:textAllCaps="true"
             android:textColor="@color/white" />
     </LinearLayout>

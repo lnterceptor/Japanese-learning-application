@@ -98,7 +98,7 @@ public class ChooseKanjiAdapter extends BaseExpandableListAdapter {
         });
 
         Button showKanji = convertView.findViewById(R.id.imageOfKanji);
-        showKanji.setBackgroundColor(context.getResources().getColor(R.color.buttonColor));
+        showKanji.setBackgroundColor(context.getResources().getColor(R.color.partialySelectedButton));
         showKanji.setText(kanjiHeader.getKanjiSet().get(0).getKanji());
 
 
@@ -119,7 +119,6 @@ public class ChooseKanjiAdapter extends BaseExpandableListAdapter {
                         }
                     }
                     kanjiHeader.setChoosen(true);
-                   // layout.setBackgroundColor(ContextCompat.getColor(view.getContext(), R.color.selectedColor));//todo: kolor sie buguje co jakis czas
                 }
                 else{
                     for (int i = 0; i < getChildrenCount(groupPosition); i++) {
@@ -134,15 +133,11 @@ public class ChooseKanjiAdapter extends BaseExpandableListAdapter {
                         }
                     }
                     kanjiHeader.setChoosen(false);
-                    //layout.setBackgroundColor(ContextCompat.getColor(view.getContext(), R.color.notSelectedColor));
                 }
             }
         });
 
         colorGroup(groupPosition);
-
-        //OnClickListenersForButtons/Change them into Image views
-
         return convertView;
     }
 
@@ -200,7 +195,7 @@ public class ChooseKanjiAdapter extends BaseExpandableListAdapter {
             kanjiHeader.setChoosen(false);
         }
         else if(countSelected < getChildrenCount(groupPosition)){
-            layout.setBackgroundColor(context.getResources().getColor(R.color.buttonColor));
+            layout.setBackgroundColor(context.getResources().getColor(R.color.partialySelectedButton));
         }
         else{
             layout.setBackgroundColor(context.getResources().getColor(R.color.selectedColor));

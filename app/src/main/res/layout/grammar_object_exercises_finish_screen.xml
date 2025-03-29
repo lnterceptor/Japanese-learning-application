@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/gradient"
+    android:id="@+id/background"
+    >
+
+    <TextView
+        android:background="@color/buttonColorBrighter"
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="Podsumowanie"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toTopOf="@+id/horizontal_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:textAlignment="center"
+        android:id="@+id/summary"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/buttonColorBrighter"
+
+        android:text="Poprawnie: 4\nNie poprawnie: 7\nBierzące zadanie 22\nŁączna liczba zadań 30"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/horizontal_3"
+        app:layout_constraintEnd_toStartOf="@+id/vertical_2"
+        app:layout_constraintStart_toStartOf="@+id/vertical_1"
+        app:layout_constraintTop_toTopOf="@+id/horizontal_2" />
+
+    <Button
+        android:id="@+id/quitButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/buttonColorBrighter"
+        android:gravity="center"
+        android:text="Wyjdz"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/horizontal_5"
+        app:layout_constraintEnd_toStartOf="@+id/vertical_2"
+        app:layout_constraintStart_toStartOf="@+id/vertical_1"
+        app:layout_constraintTop_toTopOf="@+id/horizontal_4" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontal_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontal_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.2" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontal_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.7" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontal_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontal_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.85" />
+
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vertical_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vertical_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,7 @@
 package com.example.pracainzynierska;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,10 +12,13 @@ import androidx.annotation.NonNull;
 
 import java.util.List;
 
-public class GrammarOptionAdapter extends ArrayAdapter<GrammarOptionObject> {
-
-    public GrammarOptionAdapter(@NonNull Context context, List<GrammarOptionObject> objectList) {
+public class GrammarOptionAdapter extends ArrayAdapter<GrammarObject> {
+    private Context context;
+    List<GrammarObject> grammarObjects;
+    public GrammarOptionAdapter(@NonNull Context context, List<GrammarObject> objectList) {
         super(context, 0, objectList);
+        this.context = context;
+        this.grammarObjects = objectList;
     }
 
     @Override
@@ -25,15 +29,19 @@ public class GrammarOptionAdapter extends ArrayAdapter<GrammarOptionObject> {
         TextView title = view.findViewById(R.id.grammarOptionTitle);
         TextView description = view.findViewById(R.id.grammarOptionDescription);
 
-        GrammarOptionObject object = getItem(position);
+        GrammarObject object = getItem(position);
 
         title.setText(object.getTitle());
-        description.setText(object.getDescription());
+        description.setText(object.getDefinition());
 
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Implement OnItemClickListener, probably i just need some kind of key and place all the grammar in json with proper keys
+
+                Intent intent = new Intent(context, GrammarChoosenMenu.class);
+                GrammarObject grammarObject = grammarObjects.get(position);
+                intent.putExtra("grammarObject", grammarObject);
+                context.startActivity(intent);
             }
         });
 

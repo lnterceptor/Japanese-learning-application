@@ -13,6 +13,6 @@ public class OtherExercisesMenu extends AppCompatActivity {
         protected void onCreate(Bundle savedInstanceState) {
             FirebaseApp.initializeApp(this);
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.crossword_menu);
+
         }
 }

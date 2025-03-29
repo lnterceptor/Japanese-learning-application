@@ -55,12 +55,11 @@ public class JLPTAdapter extends ArrayAdapter<JLPTObject> {
                     title = Integer.parseInt(object.getTitle().replaceAll("[^0-9]", ""));
                     intent.putExtra("lvl", "jlpt_" + title.toString());
                 } catch (NumberFormatException e){
-                    intent.putExtra("lvl", "other_kanji");
+                    intent.putExtra("lvl", "other");
                 }
 
                 intent.putExtra("nextActivity", nextActivity);
                 context.startActivity(intent);
-                //todo: Implement OnItemClickListener, probably i just need some kind of key and place all the grammar in json with proper keys
             }
         });
 

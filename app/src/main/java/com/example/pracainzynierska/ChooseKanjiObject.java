@@ -10,11 +10,12 @@ public class ChooseKanjiObject implements Serializable {
     String meanings;
     //Somehow get Image? Or set as Image String?
     String kanji;
+    String level;
 
     String mostPopularKunReading;
     String mostPopularOnReading;
 
-
+    public String getLevel(){return level;}
     public String getMostPopularKunReading() {
         return mostPopularKunReading;
     }
@@ -33,12 +34,12 @@ public class ChooseKanjiObject implements Serializable {
 
     boolean isSelected = false;
 
-    public ChooseKanjiObject(String readings_kun, String readings_on, String meanings, String kanji) {
+    public ChooseKanjiObject(String readings_kun, String readings_on, String meanings, String kanji, String level) {
         this.readings_kun = readings_kun;
         this.readings_on = readings_on;
         this.meanings = meanings;
         this.kanji = kanji;
-
+        this.level = level;
         setMostPopularReadings();
     }
     protected void setMostPopularReadings(){

@@ -1,6 +1,7 @@
 package com.example.pracainzynierska;
 
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.widget.Button;
 
@@ -25,11 +26,11 @@ public class Reading extends Recognition {
     protected void createCorrectAnswer() {
         for (ChooseKanjiObject kanji:kanjiObjects) {
             if(kanji.getKanji().equals(currentAnsKanji)){
+                singleRespondedKanji = new ProfileKanjiObject(0,0,kanji.getMostPopularKunReading(),kanji.getMostPopularOnReading(),kanji.getMeanings(),kanji.getLevel(),kanji.getKanji());
                 ansCorrect = kanji.getMeanings();
             }
         }
     }
-
     @Override
     protected void createIncorrectAnswers(){
         incorrectAnswers.clear();

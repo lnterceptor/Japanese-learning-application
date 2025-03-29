@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,7 +26,7 @@ import java.util.Map;
 
 public class ChooseKanji extends AppCompatActivity {
         private DatabaseReference mDatabase;
-        final private int lengthOfSet = 21; //todo: later on let user change it's value and based on it create different amount of sets
+        final private int lengthOfSet = 21;
         ArrayList<ChooseKanjiObject> kanjiObjects = new ArrayList<ChooseKanjiObject>();
         ArrayList<ChooseKanjiHeader> kanjiHeaders = new ArrayList<ChooseKanjiHeader>();
 
@@ -33,12 +34,12 @@ public class ChooseKanji extends AppCompatActivity {
         ChooseKanjiAdapter adapter;
         Class<?> nextActivity;
         String level;
-        //todo: static array moze byc problemem podczas konczenia ktortejs z aktywnosci, bo raczej sama sie nie czysci (5 kanji w recognition, przechodzimy 2, cofamy i zostaja w niej 3)
         static ArrayList<String> kanjiForNextActivity = new ArrayList<String>();
 
         Button buttonToNextActivity;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
+            kanjiForNextActivity.clear();
             super.onCreate(savedInstanceState);
             setContentView(R.layout.kanji_choose_activity);
 
@@ -48,15 +49,18 @@ public class ChooseKanji extends AppCompatActivity {
             nextActivity =  (Class<?>) intent.getSerializableExtra("nextActivity");
 
             buttonToNextActivity = findViewById(R.id.nextActivity);
-            //buttonToNextActivity.setVisibility(View.INVISIBLE);
             setNextActivityButton(buttonToNextActivity);
 
 
             listView = findViewById(R.id.list_with_kanji);
             getDataFromDatabase();
-
         }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        kanjiForNextActivity.clear();
+    }
 
     private void setNextActivityButton(Button button){
         button.setOnClickListener(new Button.OnClickListener() {
@@ -72,7 +76,7 @@ public class ChooseKanji extends AppCompatActivity {
                     startActivity(intent);
                 }
                 else{
-                    //todo: some toast, or idk when 0 kanji are selected
+                    Toast.makeText(getApplicationContext(),"Nie wybrano słów do nauki",Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -98,8 +102,6 @@ public class ChooseKanji extends AppCompatActivity {
                 return true;
             }
         });
-
-
     }
     public static void changeArrayOfKanji(String kanji, boolean shouldAdd){
             if(shouldAdd == true){
@@ -112,9 +114,8 @@ public class ChooseKanji extends AppCompatActivity {
     private void populateMap(){
 
          for(int i = 0; i <= kanjiObjects.size() / lengthOfSet; i++){
-
             ArrayList<ChooseKanjiObject> set = singleSet(i * lengthOfSet);
-            ChooseKanjiHeader header = new ChooseKanjiHeader("Set " + (i + 1), kanjiObjects.get(i * lengthOfSet).kanji, set);
+            ChooseKanjiHeader header = new ChooseKanjiHeader("Zestaw " + (i + 1), kanjiObjects.get(i * lengthOfSet).kanji, set);
             kanjiHeaders.add(header);
          }
     }
@@ -141,10 +142,7 @@ public class ChooseKanji extends AppCompatActivity {
     }
 
     private void getDataFromDatabase() {
-
-
-        mDatabase = FirebaseDatabase.getInstance().getReference(level);
-
+        mDatabase = FirebaseDatabase.getInstance().getReference("/kanji/"+level);
         mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -158,11 +156,10 @@ public class ChooseKanji extends AppCompatActivity {
                         String meanings = childSnapshot.child("meanings").getValue() == null ? "": childSnapshot.child("meanings").getValue().toString();
                         String readings_kun = childSnapshot.child("readings_kun").getValue() == null ? "" : childSnapshot.child("readings_kun").getValue().toString();
                         String readings_on = childSnapshot.child("readings_on").getValue() == null ? "" : childSnapshot.child("readings_on").getValue().toString();
+                        String level = childSnapshot.child("jlpt_new").getValue() == null ? "other" : childSnapshot.child("jlpt_new").getValue().toString();
 
-                        kanjiObject = new ChooseKanjiObject(readings_kun, readings_on,meanings,childKey);
-                        kanjiObjects.add(kanjiObject);//todo: idk czy nie powinienem dodac wiecej niz tylko meanings itd. Bo będą te używane później
-
-
+                        kanjiObject = new ChooseKanjiObject(readings_kun, readings_on,meanings,childKey, level);
+                        kanjiObjects.add(kanjiObject);
                     }
                 }
                 finishOnCreate();

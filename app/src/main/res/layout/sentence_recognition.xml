@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/gradient"
+    android:id="@+id/recognition_background"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/endSession"
+        android:visibility="invisible"
+        android:elevation="20dp"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:background="@color/blackWithOpacity"
+        >
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/endSessionGuideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.2" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/endSessionGuideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.8" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/endSessionGuideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.1" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/endSessionGuideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="@+id/endSessionGuideline3"
+            app:layout_constraintTop_toTopOf="@+id/endSessionGuideline1"
+            app:layout_constraintBottom_toBottomOf="@+id/endSessionGuideline2"
+            app:layout_constraintEnd_toEndOf="@+id/endSessionGuideline4"
+            android:background="@color/backgroundColor"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.2"
+                android:text="Zakończ sesję"
+                android:textColor="@color/white"
+                android:textSize="27sp"
+                />
+            <TextView
+                android:gravity="center"
+                android:id="@+id/numberOfFinishedKanji"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.2"
+                android:text="Aktualne pytanie: 7"
+                android:textColor="@color/white"
+                android:textSize="27sp"
+                />
+            <TextView
+                android:gravity="center"
+                android:id="@+id/numberOfOverallKanji"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.8"
+                android:text="Łączna liczba pytań: 15"
+                android:textColor="@color/white"
+                android:textSize="27sp"
+                />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.2">
+                <Button
+                    android:id="@+id/returnButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:textSize="20sp"
+                    android:text="Wróć"
+                    android:textColor="@color/white"
+                    />
+                <Button
+                    android:id="@+id/endSessionButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:textSize="20sp"
+                    android:text="Zakończ"
+                    android:textColor="@color/white"
+                    />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/endSession2"
+        android:visibility="invisible"
+        android:elevation="20dp"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:background="@color/blackWithOpacity"
+        >
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/endSessionGuideline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.2" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/endSessionGuideline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.8" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/endSessionGuideline7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.1" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/endSessionGuideline8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="@+id/endSessionGuideline7"
+            app:layout_constraintTop_toTopOf="@+id/endSessionGuideline5"
+            app:layout_constraintBottom_toBottomOf="@+id/endSessionGuideline6"
+            app:layout_constraintEnd_toEndOf="@+id/endSessionGuideline8"
+            android:background="@color/backgroundColor"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.4"
+                android:text="Użytkownik nie stworzył żadnych pytań"
+                android:textColor="@color/white"
+                android:textSize="27sp"
+                />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.2">
+                <Button
+                    android:id="@+id/endSessionButton2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:textSize="20sp"
+                    android:text="Zakończ"
+                    android:textColor="@color/white"
+                    />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startFirstCoulmn3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.6" />
+
+    <TextView
+        android:id="@+id/userProfileText"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="top|center"
+        android:text="Ćwiczenie użytkownika: xyz"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/startFirstCoulmn3"
+        app:layout_constraintTop_toTopOf="@+id/startHoizontal21" />
+
+    <Button
+        android:id="@+id/polishText"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/buttonColorBrighter"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/startHoizontal82"
+        app:layout_constraintEnd_toStartOf="@+id/startFirstCoulmn2"
+        app:layout_constraintStart_toStartOf="@+id/forSingleButton"
+        app:layout_constraintTop_toTopOf="@+id/startHoizontal81" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startFirstCoulmn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/forSingleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.15" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startFirstCoulmn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.85" />
+
+
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startFirstCoulmn5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
+
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startHoizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.12" />
+
+
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startHoizontal5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.49" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startHoizontal6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.56" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startHoizontal7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startHoizontal18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.67" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startHoizontal9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.71" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startHoizontal10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.78" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startHoizontal11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.82" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startHoizontal12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.89" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startHoizontal81"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startHoizontal82"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.4" />
+
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startHoizontal20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.92" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startHoizontal21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.98" />
+
+
+    <Button
+        android:id="@+id/translationInput1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/buttonColor"
+        android:gravity="center"
+        android:hint="Wprowadz porpawne zdanie"
+        android:maxLines="1"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/startHoizontal6"
+        app:layout_constraintEnd_toStartOf="@+id/startFirstCoulmn5"
+        app:layout_constraintStart_toStartOf="@+id/startFirstCoulmn"
+        app:layout_constraintTop_toTopOf="@+id/startHoizontal5"
+
+        />
+
+
+    <Button
+        android:id="@+id/translationInput2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/buttonColor"
+        android:gravity="center"
+        android:hint="Wprowadz nieporpawne zdanie"
+        android:maxLines="1"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/startHoizontal18"
+        app:layout_constraintEnd_toStartOf="@+id/startFirstCoulmn5"
+        app:layout_constraintStart_toStartOf="@+id/startFirstCoulmn"
+        app:layout_constraintTop_toTopOf="@+id/startHoizontal7"
+
+        />
+
+
+    <Button
+        android:id="@+id/translationInput3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/buttonColor"
+        android:gravity="center"
+        android:hint="Wprowadz nieporpawne zdanie"
+        android:maxLines="1"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/startHoizontal10"
+        app:layout_constraintEnd_toStartOf="@+id/startFirstCoulmn5"
+        app:layout_constraintStart_toStartOf="@+id/startFirstCoulmn"
+        app:layout_constraintTop_toTopOf="@+id/startHoizontal9"
+
+        />
+
+
+    <Button
+        android:id="@+id/translationInput4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/buttonColor"
+        android:gravity="center"
+        android:hint="Wprowadz nieporpawne zdanie"
+        android:maxLines="1"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/startHoizontal12"
+        app:layout_constraintEnd_toStartOf="@+id/startFirstCoulmn5"
+        app:layout_constraintStart_toStartOf="@+id/startFirstCoulmn"
+        app:layout_constraintTop_toTopOf="@+id/startHoizontal11"
+
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/gradient"
+    android:id="@+id/recognition_background"
+    >
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/endSession"
+        android:visibility="invisible"
+        android:elevation="20dp"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:background="@color/blackWithOpacity"
+        >
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/endSessionGuideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.2" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/endSessionGuideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.8" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/endSessionGuideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.1" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/endSessionGuideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="@+id/endSessionGuideline3"
+            app:layout_constraintTop_toTopOf="@+id/endSessionGuideline1"
+            app:layout_constraintBottom_toBottomOf="@+id/endSessionGuideline2"
+            app:layout_constraintEnd_toEndOf="@+id/endSessionGuideline4"
+            android:background="@color/backgroundColor"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.2"
+                android:text="Zakończ sesję"
+                android:textColor="@color/white"
+                android:textSize="27sp"
+                />
+            <TextView
+                android:gravity="center"
+                android:id="@+id/numberOfFinishedKanji"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.2"
+                android:text="Aktualne pytanie: 7"
+                android:textColor="@color/white"
+                android:textSize="27sp"
+                />
+            <TextView
+                android:gravity="center"
+                android:id="@+id/numberOfOverallKanji"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.2"
+                android:text="Łączna liczba pytań: 15"
+                android:textColor="@color/white"
+                android:textSize="27sp"
+                />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.2">
+                <Button
+                    android:id="@+id/returnButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:textSize="20sp"
+                    android:text="Wróć"
+                    android:textColor="@color/white"
+                    android:layout_marginEnd="8dp"
+                    />
+                <Button
+                    android:id="@+id/endSessionButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:textSize="20sp"
+                    android:text="Zakończ"
+                    android:textColor="@color/white"
+                    android:layout_marginStart="8dp"
+                    />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startFirstCoulmn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.08" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startFirstCoulmn4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.92" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startHoizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.07" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startHoizontal1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.45" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startHoizontal2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/startHoizontal2"
+        android:background="@color/buttonColorBrighter"
+        >
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/startHoizontal3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.3" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/startHoizontal4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/startHoizontal5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.8" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/startVertical3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.2" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/startVertical4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.8" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/startVertical5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.4" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/startVertical6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.6" />
+
+        <TextView
+            android:id="@+id/meaningInPolish"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="Przerwa/odpoczynek"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:gravity="center"
+            app:layout_constraintBottom_toTopOf="@+id/startHoizontal4"
+            app:layout_constraintEnd_toEndOf="@+id/startVertical4"
+            app:layout_constraintStart_toStartOf="@+id/startVertical3"
+            app:layout_constraintTop_toTopOf="@+id/startHoizontal3" />
+
+        <TextView
+            android:id="@+id/readingsOfKanji"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:text="やすみ/きゅう"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/startHoizontal3"
+            app:layout_constraintEnd_toEndOf="@+id/startVertical4"
+            app:layout_constraintStart_toStartOf="@+id/startVertical3"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/examplesOfUseInWords"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="Przykładowwe słowa z kanji:\n夏休 - Przerwa letnia.\n昼休 - Przerwa obiadowa\n"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/amount"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/startHoizontal4" />
+
+
+        <Button
+            android:id="@+id/nextKanji"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/baseline_arrow_circle_right_24"
+            android:backgroundTint="@color/white"
+            android:textSize="120sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/startVertical4"
+            app:layout_constraintTop_toTopOf="@+id/startHoizontal5" />
+
+        <Button
+            android:id="@+id/previousKanji"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/baseline_arrow_circle_left_24"
+            android:backgroundTint="@color/white"
+            android:textSize="120sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/startVertical3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/startHoizontal5" />
+
+        <Button
+            android:id="@+id/startListening"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/baseline_arrow_right_24"
+            android:backgroundTint="@color/white"
+            android:textSize="120sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/startVertical6"
+            app:layout_constraintStart_toStartOf="@+id/startVertical5"
+            app:layout_constraintTop_toTopOf="@+id/startHoizontal5" />
+
+        <TextView
+            android:id="@+id/amount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/buttonColorBrighter"
+            android:gravity="center"
+            android:text="3/5"
+            android:textColor="@color/black"
+
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/startHoizontal5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <TextView
+        android:id="@+id/RecognitionKanjiImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:textSize="120sp"
+        android:textColor="@color/white"
+        android:gravity="center"
+
+        app:layout_constraintBottom_toTopOf="@+id/startHoizontal1"
+        app:layout_constraintEnd_toStartOf="@+id/startFirstCoulmn4"
+        app:layout_constraintStart_toStartOf="@+id/startFirstCoulmn"
+        app:layout_constraintTop_toTopOf="@+id/startHoizontal"
+        android:background="@color/buttonColorBrighter"
+        />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

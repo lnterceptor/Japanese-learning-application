@@ -5,25 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainMenu"
-    android:background="@color/backgroundColor"
+    android:background="@drawable/gradient"
     >
-
-
-        <androidx.appcompat.widget.Toolbar
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="#1E1E1E"
-            android:id="@+id/toolbar"
-            app:layout_constraintTop_toTopOf="parent">
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/black"
-                >
-
-            </com.google.android.material.floatingactionbutton.FloatingActionButton>
-        </androidx.appcompat.widget.Toolbar>
 
 
 
@@ -32,7 +15,7 @@
         android:layout_height="0dp"
         android:id="@+id/MainMenuRecyclerView"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintTop_toTopOf="parent"
 
         >
 

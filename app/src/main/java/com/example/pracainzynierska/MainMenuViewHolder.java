@@ -18,11 +18,11 @@ public class MainMenuViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
         titleOfOption = itemView.findViewById(R.id.nameOfMainMenuItem);
 
-        LinearLayout checkOtherMenu = itemView.findViewById(R.id.pressToGoToOtherMenus);
+        ConstraintLayout checkOtherMenu = itemView.findViewById(R.id.pressToGoToOtherMenus);
         assignValue(checkOtherMenu);
     }
 
-    void assignValue(LinearLayout button){
+    void assignValue(ConstraintLayout button){
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

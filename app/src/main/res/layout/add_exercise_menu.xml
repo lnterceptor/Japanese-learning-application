@@ -2,7 +2,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/backgroundColor"
+    android:background="@drawable/gradient"
     >
 
     <LinearLayout
@@ -22,16 +22,22 @@
         </ImageView>
 
 
-        <View
-            android:layout_width="0dp"
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+
+            android:text="単語認識"
+            android:textColor="@color/white"
+            android:textSize="56sp"
+            android:gravity="center"
+            />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="add grammar exercise"
+            android:text="Rozpoznawanie slow"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@color/white"
@@ -49,16 +55,16 @@
         app:layout_constraintTop_toTopOf="@+id/startFirstRow"
         android:background="@color/buttonColor">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-        </ImageView>
 
-
-        <View
-            android:layout_width="0dp"
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:text="文章認識"
+            android:textColor="@color/white"
+            android:textSize="56sp"
+            android:gravity="center"
+            />
 
         <TextView
             android:layout_width="wrap_content"
@@ -66,7 +72,7 @@
             android:layout_gravity="center_horizontal"
             android:textAlignment="center"
 
-            android:text="add listening exercise"
+            android:text="Rozpoznawanie sentencji"
             android:textAllCaps="true"
             android:textColor="@color/white"
             />

@@ -1,8 +1,11 @@
 package com.example.pracainzynierska;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -12,6 +15,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.Random;
 
@@ -25,28 +29,112 @@ public class Recognition extends AppCompatActivity {
     String currentAnsKanji;
     ArrayList<ChooseKanjiObject> kanjiObjects;
     ArrayList<String> kanjiForRepetition;
-    private Button imageView;//todo: button, zeby po jego wcisnieciu text to speech
+    ArrayList<ProfileKanjiObject> respondedKanji = new ArrayList<>();
+    ProfileKanjiObject singleRespondedKanji;
+    protected Button imageView;
     ConstraintLayout layout;
-    boolean responded = true;
-    private int textSize = 90;
+    protected boolean responded = true;
+    protected int textSize = 90;
     Random random = new Random();
+    TextToSpeech textToSpeech;
+    ConstraintLayout endSessionScreen;
+    Button returnButton, endSessionButton;
+    TextView numberOfFinishedKanji, numberOfOverallKanji;
+    boolean shouldSpeak = false;
+    @Override
+    public void onBackPressed(){
+        if(endSessionScreen.getVisibility() == View.VISIBLE) {
+            endSessionScreen.setVisibility(View.INVISIBLE);
+            for(Button button: answerButtons){
+                button.setEnabled(true);
+            }
+            layout.setEnabled(true);
+            imageView.setEnabled(true);
+            return;
+        }
+        endSessionScreen.setVisibility(View.VISIBLE);
+        numberOfFinishedKanji.setText("Aktualne pytanie: " + String.valueOf(1 + respondedKanji.size()));
+        numberOfOverallKanji.setText("Łączna liczba pytań: " +String.valueOf(respondedKanji.size() + kanjiForRepetition.size()));
+        for(Button button: answerButtons){
+            button.setEnabled(false);
+        }
+        layout.setEnabled(false);
+        imageView.setEnabled(false);
+    }
+
+    void returnBack(){
+        endSessionScreen.setVisibility(View.INVISIBLE);
+        for(Button button: answerButtons){
+            button.setEnabled(true);
+        }
+        layout.setEnabled(true);
+        imageView.setEnabled(true);
+    }
+    protected void endSession(){
+        Intent intent = new Intent(getApplicationContext(),KanjiExerciseSummary.class);
+        intent.putExtra("Menu", WritingMenu.class);
+        intent.putExtra("AllKanji", respondedKanji);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
         super.onCreate(savedInstanceState);
-
         kanjiObjects = (ArrayList<ChooseKanjiObject>) getIntent().getSerializableExtra("allKanji");
         kanjiForRepetition = getIntent().getStringArrayListExtra("kanjiArray");
+        textToSpeech = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int i) {
+                if(i!=TextToSpeech.ERROR){
+                    textToSpeech.setLanguage(Locale.JAPANESE);
+                    shouldSpeak();
+                }
+            }
+        });
 
-        setContentView(R.layout.recognition);
-
+        getGUIElements();
+        setOtherButtons();
         setButtons();
         setCanvas();
-
         nextQuestion();
-
+        setTextViews();
     }
+    protected void getGUIElements(){
+        setContentView(R.layout.recognition);
+        imageView = findViewById(R.id.RecognitionKanjiImage);
+        endSessionScreen = findViewById(R.id.endSession);
+        returnButton = findViewById(R.id.returnButton);
+        endSessionButton = findViewById(R.id.endSessionButton);
+    }
+    protected void shouldSpeak(){
+        if(shouldSpeak){
+            setTextToSpeech();
+        }
+    }
+
+    void setTextViews(){
+        numberOfFinishedKanji = findViewById(R.id.numberOfFinishedKanji);
+        numberOfOverallKanji = findViewById(R.id.numberOfOverallKanji);
+    }
+    void setOtherButtons(){
+        returnButton.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                returnBack();
+            }
+        });
+
+        endSessionButton.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                endSession();
+            }
+        });
+    }
+
     protected void setCanvas(){
         layout = findViewById(R.id.recognition_background);
 
@@ -78,7 +166,7 @@ public class Recognition extends AppCompatActivity {
 
     protected void setNextKanji(){
         if(kanjiForRepetition.size() == 0){
-            //todo: finish activity and show end screen
+            endSession();
             return;
         }
         int questionNumber = random.nextInt(kanjiForRepetition.size());
@@ -89,6 +177,7 @@ public class Recognition extends AppCompatActivity {
         Random random = new Random();
         ArrayList<String> answers = new ArrayList<>(incorrectAnswers);
         answers.add(ansCorrect);
+
 
         for (Button tempButton: answerButtons) {
             if(answers.size() > 1) {
@@ -126,10 +215,31 @@ public class Recognition extends AppCompatActivity {
         }
     }
 
+    protected void setTextToSpeech(){
+        String textToSpeak = "";
+        for (ChooseKanjiObject kanji:kanjiObjects) {
+            if(kanji.getKanji().equals(currentAnsKanji)){
+                textToSpeak = kanji.getMostPopularKunReading();
+                if(textToSpeak.length() > 0){
+                    textToSpeak += ", ";
+                }
+                textToSpeak += kanji.getMostPopularOnReading();
+            }
+        }
+
+        textToSpeech.speak(textToSpeak, TextToSpeech.QUEUE_FLUSH, null, null);
+    }
+
     protected void setImageView(){
         imageView = findViewById(R.id.RecognitionKanjiImage);
         imageView.setTextSize(textSize);
         imageView.setText(currentAnsKanji);
+        imageView.setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                setTextToSpeech();
+            }
+        });
     }
 
     protected void setAnswerButtons(Button button){
@@ -144,9 +254,13 @@ public class Recognition extends AppCompatActivity {
     protected void checkAnswer(Button button){
         if(!responded) {
             if (button.getText().equals(ansCorrect)) {
+                singleRespondedKanji.setCorrect(1);
+                singleRespondedKanji.setIncorrect(0);
                 button.setBackgroundColor(ContextCompat.getColor(this, R.color.CorrectAnswer));
 
             } else {
+                singleRespondedKanji.setCorrect(0);
+                singleRespondedKanji.setIncorrect(1);
                 button.setBackgroundColor(ContextCompat.getColor(this, R.color.IncorrectAnswer));
                 for (Button buttonTemp : answerButtons) {
                     if (buttonTemp.getText().equals(ansCorrect)) {
@@ -155,6 +269,7 @@ public class Recognition extends AppCompatActivity {
                     }
                 }
             }
+            respondedKanji.add(singleRespondedKanji);
             responded = true;
         }
         else{
@@ -165,6 +280,8 @@ public class Recognition extends AppCompatActivity {
     protected void createCorrectAnswer(){
         for (ChooseKanjiObject kanji:kanjiObjects) {
             if(kanji.getKanji().equals(currentAnsKanji)){
+                singleRespondedKanji = new ProfileKanjiObject(0,0,kanji.getMostPopularKunReading(),kanji.getMostPopularOnReading(),kanji.getMeanings(),kanji.getLevel(),kanji.getKanji());
+
                 ansCorrect = kanji.getMostPopularKunReading();
                 if(ansCorrect.length() > 0){
                     ansCorrect += ", ";

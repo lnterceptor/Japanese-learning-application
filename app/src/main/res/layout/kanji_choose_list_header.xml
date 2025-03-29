@@ -65,7 +65,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/circular_button_background"
-        android:backgroundTint="#BAB9B9"
+        android:backgroundTint="@color/buttonColorBrighter"
         app:layout_constraintBottom_toBottomOf="@+id/downOfFirstText"
         app:layout_constraintEnd_toStartOf="@+id/kanjiEnd"
         app:layout_constraintStart_toStartOf="@+id/kanjiStart"
@@ -77,12 +77,12 @@
         android:id="@+id/selectAllKanji"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:backgroundTint="#BAB9B9"
+        android:backgroundTint="@color/buttonColor"
         app:layout_constraintBottom_toBottomOf="@+id/downOfFirstText"
         app:layout_constraintEnd_toStartOf="@+id/startOfSecondButton"
         app:layout_constraintStart_toStartOf="@+id/startOfButton"
         app:layout_constraintTop_toTopOf="@+id/topOfFirstText"
-        android:text="Choose"
+        android:text="WYBIERZ"
         />
 
 

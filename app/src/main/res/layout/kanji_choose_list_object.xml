@@ -6,42 +6,39 @@
     android:background="@color/notSelectedColor"
     >
 
-<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/startFloatingButton"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        android:backgroundTint="#BAB9B9"-->
-<!--        android:id="@+id/ImageKanjiChoose"-->
-<!--        >-->
-<!--    </com.google.android.material.floatingactionbutton.FloatingActionButton>-->
-
     <LinearLayout
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        app:layout_constraintTop_toTopOf="@+id/topOfFirstText"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/startFloatingButton"
-        >
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/kanjiImage"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/white"
-        android:backgroundTint="@color/white"
-        />
+        app:layout_constraintBottom_toTopOf="@+id/bottomOfSecondText"
+        app:layout_constraintEnd_toStartOf="@+id/endFloatingButton"
+        app:layout_constraintStart_toStartOf="@+id/startFloatingButton"
+        app:layout_constraintTop_toTopOf="@+id/topOfFirstText">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/kanjiImage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/buttonColorBrighter" />
+
         <TextView
             android:id="@+id/kanjiText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/buttonColorBrighter"
             android:gravity="center"
             android:text="Your Text"
             android:textColor="@color/black"
-            android:textSize="32sp"
-            android:background="@color/white"
-            />
+            android:textSize="32sp" />
     </LinearLayout>
-        
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/endFloatingButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.2" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/startFloatingButton"
         android:layout_width="wrap_content"
@@ -70,28 +67,36 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.05" />
 
-    <TextView
-        android:id="@+id/TitleOfKanjiChoose"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/bottomOfSecondText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <TextView
+        android:id="@+id/TitleOfKanjiChoose"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:text="asd asd as "
-        app:layout_constraintTop_toBottomOf="@+id/topOfFirstText"
-        app:layout_constraintStart_toStartOf="@+id/startTexts"
         android:textColor="@color/white"
         android:textSize="20sp"
-        >
-    </TextView>
+        app:layout_constraintBottom_toTopOf="@+id/devideTexts"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/startTexts"
+        app:layout_constraintTop_toBottomOf="@+id/topOfFirstText"/>
 
     <TextView
         android:id="@+id/DescriptionOfKanjiChoose"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="asd asd as "
-        app:layout_constraintTop_toBottomOf="@+id/devideTexts"
-        app:layout_constraintStart_toStartOf="@+id/startTexts"
-        android:textColor="#9F9F9F"
+        android:textColor="@color/darkGrey"
         android:textSize="15sp"
-        >
-    </TextView>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/startTexts"
+        app:layout_constraintTop_toBottomOf="@+id/devideTexts"
+        app:layout_constraintBottom_toBottomOf="@+id/bottomOfSecondText"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

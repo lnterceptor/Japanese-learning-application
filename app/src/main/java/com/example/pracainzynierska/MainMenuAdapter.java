@@ -11,10 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class MainMenuAdapter extends RecyclerView.Adapter<MainMenuViewHolder> {
-
     Context context;
     List<MainMenuOption> options;
-    int menus = 0;
     public MainMenuAdapter(Context context, List<MainMenuOption> options) {
         this.context = context;
         this.options = options;
@@ -29,22 +27,21 @@ public class MainMenuAdapter extends RecyclerView.Adapter<MainMenuViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MainMenuViewHolder holder,int position) {
         holder.titleOfOption.setText(options.get(position).optionName);
-        if(menus == 0) {
+        if(position == 0) {
             holder.menuToChangeInto = WritingMenu.class;
         }
-        else if (menus == 1) {
+        else if (position == 1) {
             holder.menuToChangeInto = ListeningMenu.class;
         }
-        else if(menus == 2){
+        else if(position == 2){
             holder.menuToChangeInto = GrammarMenu.class;
         }
-        else if(menus == 3){
-            holder.menuToChangeInto = OtherExercisesMenu.class;
-        }
-        else{
+        else if(position == 3){
             holder.menuToChangeInto = AddExerciseMenu.class;
         }
-        menus += 1;
+        else{
+            holder.menuToChangeInto = Profile.class;
+        }
     }
 
     @Override

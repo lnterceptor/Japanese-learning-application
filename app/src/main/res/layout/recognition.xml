@@ -3,9 +3,114 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/backgroundColor"
+    android:background="@drawable/gradient"
     android:id="@+id/recognition_background"
     >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/endSession"
+        android:visibility="invisible"
+        android:elevation="20dp"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:background="@color/blackWithOpacity"
+        >
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/endSessionGuideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.3" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/endSessionGuideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.75" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/endSessionGuideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.1" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/endSessionGuideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="@+id/endSessionGuideline3"
+            app:layout_constraintTop_toTopOf="@+id/endSessionGuideline1"
+            app:layout_constraintBottom_toBottomOf="@+id/endSessionGuideline2"
+            app:layout_constraintEnd_toEndOf="@+id/endSessionGuideline4"
+            android:background="@color/backgroundColor"
+            android:orientation="vertical"
+            >
+        <TextView
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.15"
+            android:text="ZAKOŃCZ SESJĘ"
+            android:textColor="@color/white"
+            android:textSize="33sp"
+            />
+        <TextView
+                android:gravity="center"
+                android:id="@+id/numberOfFinishedKanji"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.1"
+                android:text="Aktualne pytanie: 7"
+                android:textColor="@color/white"
+                android:textSize="27sp"
+            />
+        <TextView
+                android:gravity="center"
+                android:id="@+id/numberOfOverallKanji"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.1"
+                android:text="Łączna liczba pytań: 15"
+                android:textColor="@color/white"
+                android:textSize="27sp"
+            />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1">
+            <Button
+                android:id="@+id/returnButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:textSize="25sp"
+                android:text="Wróć"
+                android:background="@color/buttonColor"
+                android:textColor="@color/white"
+                />
+            <Button
+                android:id="@+id/endSessionButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:background="@color/buttonColor"
+                android:textSize="25sp"
+                android:text="Zakończ"
+                android:textColor="@color/white"
+                />
+        </LinearLayout>
+
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/startFirstCoulmn"
@@ -61,7 +166,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.63" />
+        app:layout_constraintGuide_percent="0.68" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/startHoizontal4"
@@ -75,7 +180,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.78" />
+        app:layout_constraintGuide_percent="0.83" />
 
 
     <androidx.constraintlayout.widget.Guideline
@@ -91,9 +196,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.93" />
+        app:layout_constraintGuide_percent="0.97" />
 
     <Button
+        android:textSize="20sp"
+        android:textColor="@color/black"
         android:id="@+id/buttonResponce3"
         android:text="Mizuas/asdasd"
         android:maxLines="2"
@@ -105,6 +212,8 @@
         app:layout_constraintTop_toTopOf="@+id/startHoizontal4" />
 
     <Button
+        android:textSize="20sp"
+        android:textColor="@color/black"
         android:id="@+id/buttonResponce4"
         android:text="Mizuas/asdasd"
         android:maxLines="2"
@@ -116,6 +225,8 @@
         app:layout_constraintTop_toTopOf="@+id/startHoizontal4" />
 
     <Button
+        android:textSize="20sp"
+        android:textColor="@color/black"
         android:id="@+id/buttonResponce5"
         android:text="Mizuas/asdasd"
         android:maxLines="2"
@@ -127,6 +238,8 @@
         app:layout_constraintTop_toTopOf="@+id/startHoizontal6" />
 
     <Button
+        android:textSize="20sp"
+        android:textColor="@color/black"
         android:id="@+id/buttonResponce6"
         android:text="Mizuas/asdasd"
         android:maxLines="2"
@@ -138,6 +251,8 @@
         app:layout_constraintTop_toTopOf="@+id/startHoizontal6" />
 
     <Button
+        android:textSize="20sp"
+        android:textColor="@color/black"
         android:id="@+id/buttonResponce1"
         android:text="Mizuas/asdasd"
         android:maxLines="2"
@@ -149,6 +264,8 @@
         app:layout_constraintTop_toTopOf="@+id/startHoizontal2"/>
 
     <Button
+        android:textSize="20sp"
+        android:textColor="@color/black"
         android:id="@+id/buttonResponce2"
         android:text="Mizuas/asdasd"
         android:maxLines="2"
@@ -163,11 +280,15 @@
         android:id="@+id/RecognitionKanjiImage"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:textSize="120sp"
 
         app:layout_constraintBottom_toTopOf="@+id/startHoizontal1"
         app:layout_constraintEnd_toStartOf="@+id/startFirstCoulmn4"
         app:layout_constraintStart_toStartOf="@+id/startFirstCoulmn"
         app:layout_constraintTop_toTopOf="@+id/startHoizontal"
-        android:background="@color/white"
+        android:background="@color/buttonColorBrighter"
         />
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
